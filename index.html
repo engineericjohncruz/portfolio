@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Eric John N. Cruz - Portfolio</title>
+  <meta name="description" content="Portfolio of Eric John N. Cruz. Junior Electrical Engineer, Digital Marketing Specialist, General Virtual Assistant.">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#141a20;
+      --card:#151b24;
+      --text:#e6edf3;
+      --muted:#9da7b3;
+      --accent:#7c5cff;
+      --accent2:#22d3ee;
+      --chip:#232a33;
+      --ok:#10b981;
+      --warn:#f59e0b;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif;line-height:1.6}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{max-width:1100px;margin:0 auto;padding:24px}
+    header{position:sticky;top:0;z-index:50;background:rgba(13,17,23,.7);backdrop-filter:saturate(160%) blur(6px);border-bottom:1px solid #222}
+    nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:700;font-family:Montserrat,system-ui}
+    .brand .dot{width:10px;height:10px;background:linear-gradient(135deg,var(--accent),var(--accent2));border-radius:50%}
+    .navlinks{display:flex;gap:18px;flex-wrap:wrap}
+    .navlinks a {display:inline-flex; align-items:center; line-height:1; font-weight:600; color:var(--text); opacity: 9;}
+    .navlinks a:hover{opacity:1}
+    .cta{background:linear-gradient(135deg,var(--accent),var(--accent2));color:#000;font-weight:700;padding:10px 22px;border-radius:999px;line-height:1.2; display: inline-flex; align-items: center;}
+    .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center;padding:28px 0}
+    .hero-card{background:radial-gradient(1400px 600px at -20% -60%, rgba(124,92,255,.25), transparent 60%), linear-gradient(180deg, rgba(34,211,238,.12), transparent 40%);border:1px solid #242a33;border-radius:18px;padding:28px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+    h1{margin:0 0 10px;font-size: clamp(28px, 4vw, 42px);font-family:Montserrat,system-ui;font-weight:800;letter-spacing:.4px;background:linear-gradient(90deg,var(--text),#b6c2ce);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+    .tagline{color:var(--muted);font-size:clamp(14px,1.8vw,16px)}
+    .quick{margin-top:16px;display:flex;flex-wrap:wrap;gap:10px}
+    .chip{display:inline-flex;align-items:center;gap:8px;background:var(--chip);border:1px solid #262e38;padding:8px 12px;border-radius:999px;font-size:13px}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+    .stat{background:var(--card);border:1px solid #262e38;border-radius:14px;padding:14px;text-align:center}
+    .stat .big{font-family:Montserrat,system-ui;font-weight:800;font-size:20px}
+    .muted{color:var(--muted)}
+    /* Sections */
+    section{padding:28px 0}
+    .section-title{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+    .section-title h2{margin:0;font-family:Montserrat,system-ui;font-weight:800;font-size:clamp(20px,2.8vw,26px)}
+    /* Cards grid */
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    @media (max-width: 980px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width: 640px){.navlinks{display:none}.grid{grid-template-columns:1fr}}
+    .card{background:var(--card);border:1px solid #262e38;border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:10px;box-shadow:0 10px 24px rgba(0,0,0,.18)}
+    .card h3{margin:0;font-family:Montserrat,system-ui;font-weight:700;font-size:18px}
+    .pill{display:inline-block;background:#1f2430;border:1px solid #2a3240;border-radius:10px;padding:4px 8px;font-size:12px;color:var(--muted);margin-right:6px}
+    .list{margin:0 0 0 16px;padding:0}
+    .list li{margin:6px 0}
+    .skills-wrap{display:flex;flex-wrap:wrap;gap:10px}
+    .skill{background:#1b2130;border:1px solid #2a3240;border-radius:10px;padding:8px 10px;font-size:13px}
+    .footer{border-top:1px solid #20262f;margin-top:28px;padding:24px 0;color:var(--muted);text-align:center}
+    /* Buttons */
+    .btn{display:inline-flex;align-items:center;gap:8px;border:1px solid #2a3240;background:#151a23;border-radius:12px;padding:10px 14px;color:var(--text);font-weight:600}
+    .btn:hover{border-color:#3a4354}
+    .btn.small{padding:8px 10px;font-size:13px}
+    /* Contact icons */
+    .icons{display:flex;gap:12px;flex-wrap:wrap}
+    .icon{width:42px;height:42px;border-radius:12px;display:inline-flex;align-items:center;justify-content:center;border:1px solid #2a3240;background:#151a23}
+    /* Badge colors */
+    .ok{background:rgba(16,185,129,.12);border-color:rgba(16,185,129,.35);color:#86efac}
+    .warn{background:rgba(245,158,11,.12);border-color:rgba(245,158,11,.35);color:#fde68a}
+    .accent{background:rgba(124,92,255,.14);border-color:rgba(124,92,255,.4);color:#c7b8ff}
+    .profile-picture {width: 230px; height: 230px; border-radius: 50%; object-fit: cover; margin-bottom: 16px; border: 4px solid #2a3240;box-shadow: 0 6px 18px rgba(0,0,0,.45);} 
+    .skills-wrap {display: flex; flex-wrap: wrap; gap: 10px;}
+</style>
+</head>
+
+<script>
+  function scrollToHeading(id) {
+    const headerOffset = document.querySelector('header').offsetHeight;
+    const section = document.querySelector(id);
+    if (!section) return;
+
+    // Look for h2 inside the section, otherwise use section itself
+    const target = section.querySelector('h2') || section;
+    const y = target.getBoundingClientRect().top + window.scrollY - headerOffset - 10; // adjust -10 if needed
+    window.scrollTo({ top: y, behavior: 'smooth' });
+  }
+
+  // Handle clicks on nav links
+  document.querySelectorAll('nav .navlinks a[href^="#"]').forEach(link => {
+    link.addEventListener('click', e => {
+      const id = link.getAttribute('href');
+      if (id && id.length > 1) {
+        e.preventDefault();
+        scrollToHeading(id);
+        history.replaceState(null, '', id);
+      }
+    });
+  });
+
+  // Handle page load with hash
+  window.addEventListener('load', () => {
+    if (location.hash) scrollToHeading(location.hash);
+  });
+
+  // Handle hash changes
+  window.addEventListener('hashchange', () => {
+    if (location.hash) scrollToHeading(location.hash);
+  });
+</script>
+
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="brand"><span class="dot"></span> <span>Eric John N. Cruz</span></div>
+        <div class="navlinks">
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#experience">Experience</a>
+          <a href="#projects">Projects</a>
+          <a href="#tools">Tools</a>
+          <a href="#education">Education</a>
+          <a href="#certs">Licenses</a>
+          <a href="#contact" class="cta">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- HERO -->
+    <section class="hero" id="about">
+      <div class="hero-card">
+        <h2>Junior Electrical Engineer, General Virtual Assistant, and Marketing Specialist</h2>
+        <p class="tagline">
+          Registered Electrical Engineer and Safety Officer with experience across design, testing, and maintenance. 
+          I also manage digital operations: SEO, email campaigns, and content updates. 
+          I keep engineers focused, stakeholders aligned, and projects moving with clear communication and safe execution.
+        </p>
+        <div class="quick">
+          <span class="chip accent">Registered Electrical Engineer</span>
+          <span class="chip ok">Safety Officer 2</span>
+          <span class="chip">AutoCAD • MATLAB • Python</span>
+          <span class="chip">SEO • Email Marketing • WordPress</span>
+        </div>
+        <div class="stats">
+          <div class="stat">
+            <div class="big">5+</div>
+            <div class="muted">Domains of support</div>
+          </div>
+          <div class="stat">
+            <div class="big">2</div>
+            <div class="muted">Industries</div>
+          </div>
+          <div class="stat">
+            <div class="big">2018</div>
+            <div class="muted">Started EE journey</div>
+          </div>
+        </div>
+        <div style="margin-top:16px;display:flex;gap:10px;flex-wrap:wrap">
+          <a class="btn" href="#contact">Work with me</a>
+          <a class="btn small" href="Resume.pdf" download>Download resume (PDF)</a>
+        </div>
+      </div>
+      <div class="hero-card" style="display:flex;flex-direction:column;gap:10px;align-items:center;">
+          <!-- Profile picture -->
+          <img src="https://raw.githubusercontent.com/engineericjohncruz/engineericc/refs/heads/main/engineeric.jpg" 
+     alt="Eric John N. Cruz" 
+     class="profile-picture">  <div>
+      <div class="muted" style="margin-bottom:6px">Core strengths</div>
+     <div class="skills-wrap">
+      <span class="skill">Electrical design</span>
+      <span class="skill">QA/QC</span>
+      <span class="skill">Test planning</span>
+      <span class="skill">Project coordination</span>
+      <span class="skill">Documentation</span>
+      <span class="skill">Process improvement</span>
+      <span class="skill">Clear communication</span>
+    </div>
+  </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="section-title"><h2>Skills</h2></div>
+      <div class="skills-wrap">
+        <span class="skill">AutoCAD 2D Electrical Design</span>
+        <span class="skill">MATLAB Simulink Power Systems Simulation</span>
+        <span class="skill">Python Basic Automation and Coding</span>
+        <span class="skill">Protective Devices Testing</span>
+        <span class="skill">BOM and Takeoffs</span>
+        <span class="skill">QA/QC Reviews</span>
+        <span class="skill">Project Coordination and Management</span>
+        <span class="skill">Data Entry & Management</span>
+        <span class="skill">Task Management</span>
+        <span class="skill">Website Management & Customization</span>
+        <span class="skill">Email Campaigns, Automation & A/B Testing</span>
+        <span class="skill">SEO (On-Page, Off-Page, Local, Keyword Strategy)</span>
+        <span class="skill">Analytics (Traffic Analysis, Conversion Tracking, Reporting)</span>
+        <span class="skill">Keyword Research & Competitor Analysis</span>
+        <span class="skill">SEO Audits & Site Optimization</span>
+        <span class="skill">Graphic Design & Branded Content Creation</span>
+        <span class="skill">Image Editing & Marketing Graphics</span>
+        <span class="skill">Video Editing (Promotional Content, Reels & Ads)</span>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <div class="section-title">
+        <h2>Experience</h2>
+      </div>
+      <div class="grid">
+
+        <article class="card">
+          <h3>Technical Encoder</h3>
+          <span class="pill">Rapid Care Manpower Services</span>
+          <div class="muted">Mar 2025 - Jun 2025</div>
+          <ul class="list">
+            <li>Supported electrical project design and document approvals.</li>
+            <li>Logged maintenance activities and updated system records.</li>
+            <li>Coordinated with field crews and assisted test planning.</li>
+            <li>Prepared preventive maintenance checklists and inventory updates.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Digital Operations Manager</h3>
+          <span class="pill">SEO Leads</span>
+          <div class="muted">Feb 2024 - Jul 2025</div>
+          <ul class="list">
+            <li>Managed citations, backlinks, and press releases to improve visibility.</li>
+            <li>Owned email marketing cadence and weekly stats reporting.</li>
+            <li>Updated website content and coordinated monthly reviews.</li>
+            <li>Handled data entry, report generation, and meeting coordination.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Electrical Engineer</h3>
+          <span class="pill">Freelance</span>
+          <div class="muted">June 2024 - Present</div>
+          <ul class="list">
+            <li>Designed and installed building wiring and panel boards.</li>
+            <li>Coordinated with contractors and reviewed costs.</li>
+            <li>Supervised site work and ensured standards compliance.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Marketing and Sales Specialist</h3>
+          <span class="pill">SEO Leads</span>
+          <div class="muted">Feb 2023 - Jan 2024</div>
+          <ul class="list">
+            <li>Keyword research, content audits, and on-page refinements.</li>
+            <li>Link building with high quality citations and PR.</li>
+            <li>Lead generation and monthly performance reports.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Trainee Engineer</h3>
+          <span class="pill">Office of the Municipal Engineer</span>
+          <div class="muted">Jun 2022 - Aug 2022</div>
+          <ul class="list">
+            <li>Produced CAD drawings, redlines, and as-builts to reduce rework.</li>
+            <li>Prepared BOMs and load schedules to streamline procurement.</li>
+            <li>Drafted test procedures and acceptance criteria.</li>
+            <li>Coordinated stakeholders and tracked dependencies.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Subject Matter Expert</h3>
+          <span class="pill">Foundever</span>
+          <div class="muted">Apr 2021 - Mar 2023</div>
+          <ul class="list">
+            <li>Coached agents, monitored quality, and ensured compliance.</li>
+            <li>Handled escalations and performance analytics.</li>
+            <li>Prepared reports and supported training programs.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Electrician</h3>
+          <span class="pill">AP Cruz Trading and Services</span>
+          <div class="muted">Jan 2020 - Mar 2021</div>
+          <ul class="list">
+            <li>Building Wiring Installation</li>
+            <li>System Troubleshooting Installation</li>
+            <li>Panel Board Installation</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Admin Assistant (OJT)</h3>
+          <span class="pill">Palawan Governors Office</span>
+          <div class="muted">Jan 2020 - Mar 2021</div>
+          <ul class="list">
+            <li>Assisted in office management and administrative tasks.</li>
+            <li>Supported document preparation and filing systems.</li>
+            <li>Coordinated schedules and organized meetings.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+  <div class="section-title">
+    <h2>Projects</h2>
+  </div>
+  <div class="grid">
+    <article class="card">
+      <h3><a href="Electrical Design.html">Electrical Design</a></h3>
+      <div class="muted">Drafting and Estimation</div>
+      <ul class="list">
+        <li>Created SLD and load schedules for a rehabilitation project.</li>
+        <li>Applied standards and coordinated field updates.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h3><a href="Search Engine Optimization.html">Search Engine Optimization</a></h3>
+      <div class="muted">Digital marketing operations</div>
+      <ul class="list">
+        <li>Managed citations, backlinks, and PR for multiple clients.</li>
+        <li>Drafted, sent, and reported on weekly email campaigns.</li>
+      </ul>
+    </article>
+
+    <article class="card">
+      <h3><a href="Web Design.html">Web Design</a></h3>
+      <div class="muted">HTML, CSS, & WordPress</div>
+      <ul class="list">
+        <li>Built and customized WordPress websites with pages, forms, and media integration.</li>
+        <li>Applied HTML and CSS to create clean layouts and improve design styling.</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+        <!-- TOOLS -->
+    <section id="tools">
+          <div class="section-title"><h2>Tools</h2></div>
+          <div class="skills-wrap">
+            <span class="skill">AutoCAD</span>
+            <span class="skill">MATLAB Simulink</span>
+            <span class="skill">Python</span>
+            <span class="skill">Microsoft 365</span>
+            <span class="skill">Google Workspace</span>
+            <span class="skill">ClickUp</span>
+            <span class="skill">WordPress</span>
+            <span class="skill">Brevo</span>
+            <span class="skill">Mailchimp</span>
+            <span class="skill">Ubersuggest</span>
+            <span class="skill">Google Analytics</span>
+            <span class="skill">Woorank</span>
+            <span class="skill">Canva</span>
+            <span class="skill">Photoshop</span>
+            <span class="skill">Premiere</span>
+            <span class="skill">Vegas Pro</span>
+          </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education">
+      <div class="section-title"><h2>Education</h2></div>
+      <div class="grid">
+        <article class="card">
+          <h3>BS in Electrical Engineering</h3>
+          <div class="muted">Palawan State University</div>
+          <div class="muted">2018 - 2023</div>
+        </article>
+        <article class="card">
+          <h3>General Academics - High School</h3>
+          <div class="muted">Seminario de San Jose</div>
+          <div class="muted">2012 - 2018</div>
+          <div class="muted">With High Honors, Outstanding in Research</div>
+        </article>
+      </div>
+    </section>
+
+    <!-- LICENSES & CERTS -->
+    <section id="certs">
+      <div class="section-title"><h2>Licenses and Certificates</h2></div>
+      <div class="grid">
+        <article class="card">
+          <h3>Registered Electrical Engineer</h3>
+          <div class="muted">Professional Regulation Commission</div>
+        </article>
+        <article class="card">
+          <h3>Safety Officer 2</h3>
+          <div class="muted">Mastery Consultancy OPC</div>
+        </article>
+        <article class="card">
+          <h3>NC II - Electrical Installation & Maintenance</h3>
+          <div class="muted">TESDA</div>
+        </article>
+        <article class="card">
+          <h3>Preparing Computer-Aided Drawings</h3>
+          <div class="muted">TESDA</div>
+        </article>
+        <article class="card">
+          <h3>MATLAB Simulink: Power Systems Simulation</h3>
+          <div class="muted">MathWorks</div>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="section-title"><h2>Get in touch</h2></div>
+      <div class="card">
+        <p class="muted">Available for engineering roles, digital operations, or hybrid positions.</p>
+        <div class="icons" style="margin-top:10px">
+          <a class="icon" href="mailto:cruzericjohn@gmail.com" title="Email">✉️</a>
+          <a class="icon" href="tel:+639388046969" title="Call">📞</a>
+        </div>
+        <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap">
+          <a class="btn small" href="#experience">View experience</a>
+          <a class="btn small" href="#projects">See projects</a>
+          <a class="btn small" href="Resume.pdf" download>Resume PDF</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div>© 2025 Eric John N. Cruz</div>
+      <div style="margin-top:6px">Built with clean HTML and CSS</div>
+    </div>
+  </footer>
+</body>
+</html>
